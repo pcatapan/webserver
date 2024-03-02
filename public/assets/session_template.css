@@ -1,0 +1,90 @@
+.Content {
+	flex: 78%;
+	margin: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 20px;
+}
+.Content table{
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+}
+.Content table thead .header{
+  display: flex;
+  flex-direction: row;
+  gap: 45px;
+}
+.Content table thead .header>th{
+  font-size: 18px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 28px;
+    /* or 140% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+}
+.Content table tbody{
+  display: flex;
+  flex-direction: column;
+
+  gap: 1px;
+}
+.Content table tbody tr{
+  display: flex;
+  flex-direction: row;
+  gap: 45px;
+}
+.Content table tbody tr>td{
+  font-size: 10px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 28px;
+    /* or 140% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.nav{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: white;
+  }
+  
+  li {
+	float: left;
+  }
+  
+  li a {
+	display: block;
+	color: #2978FF;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+  }
+  
+  li a:hover {
+	background-color: #2978FF;
+	color: white;
+  }
