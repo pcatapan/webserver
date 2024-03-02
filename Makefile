@@ -7,8 +7,6 @@ SERVER_PATH = ./source/Server/
 INCLUDES_PATH = ./include/
 FLAGS =  -Wall -Wextra -Werror -std=c++98  -fsanitize=address
 
-DEBUG = false
-
 SERVSRC = $(SERVER_PATH)Server.cpp $(SERVER_PATH)ServerClass.cpp $(SERVER_PATH)utils.cpp $(SERVER_PATH)Check.cpp $(SERVER_PATH)unitTests.cpp $(SERVER_PATH)acceptProcess.cpp $(SERVER_PATH)socketClass.cpp
 config_SRCS = $(CONFIGFILE_PATH)ConfigFile.cpp $(CONFIGFILE_PATH)CheckValidity.cpp $(CONFIGFILE_PATH)ft_error.cpp $(CONFIGFILE_PATH)save_data.cpp $(CONFIGFILE_PATH)tool.cpp
 
@@ -24,10 +22,6 @@ OBJS	= $(SRCS:.cpp=.o)
 DEPS =  $(INCLUDES_PATH)request.hpp $(INCLUDES_PATH)method.hpp $(INCLUDES_PATH)WebServer.hpp $(INCLUDES_PATH)ConfigFile.hpp $(INCLUDES_PATH)classes.hpp $(INCLUDES_PATH)serverSide.hpp $(INCLUDES_PATH)unitTests.hpp $(INCLUDES_PATH)Assets.hpp
 
 FILES_OBJ = $(OBJS) $(config_OBJS) $(request_OBJS) $(method_OBJS)
-
-ifeq ($(DEBUG),true)
-    FILES_OBJ = $(config_SRCS) $(SRCS)  $(request_SRCS) $(method_SRCS)
-endif
 
 %.o:%.cpp $(DEPS)
 	${CC} ${FLAGS}  -o $@ -c $<

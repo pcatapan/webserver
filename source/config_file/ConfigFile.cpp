@@ -61,8 +61,10 @@ void ConfigFile::server_block(Data &g_Data, KeyValue v) {
             trim(v.line, WHITE_SPACE);
             if(v.line.length() == 0 || v.line[0] == '#')
                 continue;
+
             if(v.line == "}")
                 break;
+			
             v.index = v.line.find(SPACE);
             if (v.index == -1) {
                 g_Data.error = "WebServer: [emerg] invalid number of arguments in \"";
@@ -91,6 +93,7 @@ void ConfigFile::getdata(Data &g_Data) {
             trim(v.line, WHITE_SPACE);
             if (v.line.length() == 0 || v.line[0] == COMMENT)
                 continue;
+
             v.index = v.line.find(SPACE);
             v.key = v.line.substr(0, v.index);
             if (v.index == -1) {
@@ -99,18 +102,21 @@ void ConfigFile::getdata(Data &g_Data) {
                 trim(v.line, WHITE_SPACE);
                 if (v.line[0] == COMMENT)
                     continue;
+
                 v.index = v.line.find_first_not_of(WHITE_SPACE);
                 while(v.index == -1 && std::getline(this->_in_file, v.line)) {
                     line_index++;
                     trim(v.line, WHITE_SPACE);
                     if (v.line[0] == COMMENT)
                         continue;
+
                     v.index = v.line.find_first_not_of(WHITE_SPACE);
                 }
                 v.value = v.line;
             }
             else
                 v.value = v.line.substr(v.index, v.line.length() - 1);
+			
             trim(v.value, WHITE_SPACE);
             server_block(g_Data, v);
         }

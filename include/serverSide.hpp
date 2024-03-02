@@ -36,12 +36,12 @@ enum ServerDef
 	//	** Request 
 	KEEP_ALIVE = 7,
 	CLOSE,
-	SET_CNX, //? connexion not set
+	SET_CNX,
 
 	//	** Request stat
 	STAT = 199,
 	WELL = 200,
-	TIMEOUT,	//?: Request TimeOut
+	TIMEOUT,
 
 	//	**
 	CRF = 4,

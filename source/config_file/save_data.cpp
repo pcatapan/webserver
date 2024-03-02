@@ -1,6 +1,6 @@
 #include "../../include/WebServer.hpp"
 
-void ConfigFile::key_value(ServerConf &server, KeyValue v) {
+void ConfigFile:: key_value(ServerConf &server, KeyValue v) {
 
     std::string variable;
 

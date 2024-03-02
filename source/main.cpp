@@ -5,7 +5,7 @@
 
 std::map<std::string, std::string> session_map;
 
-int _main (int ac, char **av)
+int main (int ac, char **av)
 {
     Data 	g_Data;
     if (ac == 2)
@@ -17,9 +17,9 @@ int _main (int ac, char **av)
     if (!g_Data.error.empty())
     {
         std::cout << RED << g_Data.error << END_CLR << std::endl;
-        // system("leaks webserv");
         return (1);
     }
+    
 	std::cout << GREEN << "+> Parsing Done !!" << END_CLR << std::endl << std::endl;
     list_session_page();
 
@@ -51,10 +51,4 @@ int _main (int ac, char **av)
 
 void s3ediya() {
     system("leaks webServ");
-}
-
-int main(int ac, char **av)
-{
-	_main(ac, av);
-    // atexit(s3ediya);
 }
