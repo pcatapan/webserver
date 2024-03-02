@@ -27,11 +27,11 @@ dependencies () {
 		exit 1
 	fi
 
-	command -v python &> /dev/null
+	command -v python3 &> /dev/null
 	if [ $? = "1" ]
 	then
 		$PACK_MAN update &> /dev/null
-		$PACK_MAN install python
+		$PACK_MAN install python3
 	else
 		echo "\x1b[33m       " "+> Python : DONE" 
 	fi

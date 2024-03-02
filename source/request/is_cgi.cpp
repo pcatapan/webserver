@@ -41,8 +41,11 @@ std::string getpath(std::string path_of) {
     FILE* pipe;
     if (path_of.compare("home") == 0)
         pipe = popen("echo ~", "r");
-    else
-        pipe = popen("which go", "r");
+    else 
+    {
+        std::string command = "which "+path_of;
+        pipe = popen(command.c_str(), "r");
+    }
     char buffer[128];
     std::string result;
     while (!feof(pipe)) {
@@ -58,7 +61,8 @@ bool Is_cgi(std::string str)
 {
     size_t pos = 0;
     if (((pos = str.rfind(".py")) != std::string::npos && (pos + 3) == str.length()) ||
-    ((pos = str.rfind(".go")) != std::string::npos && (pos + 3) == str.length()) 
+    ((pos = str.rfind(".go")) != std::string::npos && (pos + 3) == str.length()) ||
+    ((pos = str.rfind(".php")) != std::string::npos && (pos + 4) == str.length())
     ) return true;
     return false;
 }
@@ -150,18 +154,29 @@ void run_child(std::string filename, char **envp) {
     int             fd_out = 1;
     char            **argv = new char*[4];
 
+    std::cout << filename << std::endl;
     if (filename.rfind(".py") == (filename.length() - 3))
     {
-        argv[0] = strdup("/usr/bin/python3");
+        argv[0] = strdup(getpath("python").c_str());
         argv[1] = strdup(filename.c_str());
         argv[2] = NULL;
     }
-    else
+    else if (filename.rfind(".go") == (filename.length() - 3))
     {
         argv[0] = strdup(getpath("go").c_str());
         argv[1] = strdup("run");
         argv[2] = strdup(filename.c_str());
         argv[3] = NULL;
+    }
+    else if (filename.rfind(".php") == (filename.length() - 4))
+    {
+        argv[0] = strdup(getpath("php").c_str());
+        argv[1] = strdup(filename.c_str());
+        argv[2] = NULL;
+    }
+    else
+    {
+        exit (ERR_SERV);
     }
     fd_out = open("source/cgi_files/cgi_pages/file_cgi.html", O_CREAT | O_WRONLY | O_TRUNC, 0666);
     if (fd_out == -1) {    

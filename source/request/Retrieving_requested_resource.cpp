@@ -183,6 +183,11 @@ int request::findLocation(std::vector<std::map<std::string, std::map<std::string
         this->is_cgi = true;
         this->compare_URI.append("\%.go$");
     }
+    else if ((pos =  _findHeader(REQUEST_URI).rfind(".php")) != std::string::npos && (pos + 4) ==  _findHeader(REQUEST_URI).length())
+    {
+        this->is_cgi = true;
+        this->compare_URI.append("\%.php$");
+    }
     else this->compare_URI.append(this->_findHeader(REQUEST_URI));
      //  * init string |> /srcs/dir001/dir0011/test.txt
 
