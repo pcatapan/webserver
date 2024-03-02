@@ -22,7 +22,7 @@ def get_page(params_dict):
         title = params_dict.get('title', 'ff')
         heading = params_dict.get('heading', 'ff')
         message = params_dict.get('message', 'ff')
-    if (os.environ.get('VALID_COOKIE') == None):
+    if (os.environ.get('VALID_COOKIE') == "NO"):
         with open('./public/assets/no_cookie.html', 'r') as f:
             template = f.read()
         html = template
