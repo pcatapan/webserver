@@ -41,7 +41,7 @@ def get_page(params_dict):
 
 
 # ---- start env ---------------#
-# CONTENT_TYPE = os.environ.get('CONTENT_TYPE', 'text/plain')
+#CONTENT_TYPE = os.environ.get('CONTENT_TYPE', 'text/plain')
 query_string = os.environ.get('QUERY_STRING', '')
 body_string = os.environ.get('REQUEST_BODY', '')
 request_method = os.environ.get('REQUEST_METHOD')

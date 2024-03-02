@@ -63,8 +63,6 @@ func getPage(paramsDict map[string]string) string {
 
 // * -- end template function ------//
 
-
-
 func main() {
     contentType := os.Getenv("CONTENT_TYPE")
     if contentType == "" {
