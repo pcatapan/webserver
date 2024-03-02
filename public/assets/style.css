@@ -326,3 +326,39 @@ a {
 	justify-content: center;
 	text-align: center;
 }
+
+
+.nav{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: white;
+  }
+  
+  li {
+	float: left;
+  }
+  
+  li a {
+	display: block;
+	color: #2978FF;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+  }
+  
+  li a:hover {
+	background-color: #2978FF;
+	color: white;
+  }
+
+  ul.a {
+	list-style-type: circle;
+  }
