@@ -13,7 +13,7 @@ void list_session_page(){
 
     inFile.open(SESSION_TEMPLATE, std::ifstream::in);
     if (!inFile.is_open())
-        throw _Exception(INTERNAL_SERVER_ERROR); // r************
+        throw _Exception(INTERNAL_SERVER_ERROR);
     while (std::getline(inFile, buffer)){
         if (buffer.find("id=\"tbody\"") != std::string::npos){
             body.append(buffer);
@@ -31,7 +31,7 @@ void list_session_page(){
     body.append("</tbody></table></div></div><div id=\"Footer\"><p class=\"S-txt\">Web 2.0</p><p class=\"S-txt\">HTTP/1.1</p></div></div></body></html>");
     outFile.open(SESSION_PAGE, std::ifstream::out);
     if (!inFile.is_open())
-        throw _Exception(INTERNAL_SERVER_ERROR); // r************
+        throw _Exception(INTERNAL_SERVER_ERROR);
     outFile << body;
     inFile.close();
     outFile.close();
