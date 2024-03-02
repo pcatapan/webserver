@@ -27,13 +27,22 @@ dependencies () {
 		exit 1
 	fi
 
+	command -v php &> /dev/null
+	if [ $? = "1" ]
+	then
+		$PACK_MAN update &> /dev/null
+		$PACK_MAN install php
+	else
+		echo "\x1b[33m       " "+> PHP    : DONE" 
+	fi
+
 	command -v python3 &> /dev/null
 	if [ $? = "1" ]
 	then
 		$PACK_MAN update &> /dev/null
 		$PACK_MAN install python3
 	else
-		echo "\x1b[33m       " "+> Python : DONE" 
+		echo "\x1b[33m        " "+> Python : DONE" 
 	fi
 
 	command -v go &> /dev/null
@@ -42,7 +51,7 @@ dependencies () {
 		$PACK_MAN update &> /dev/null
 		$PACK_MAN install go
 	else
-		echo "\x1b[33m        " "+> Go : DONE" 
+		echo "\x1b[33m        " "+> Go     : DONE" 
 	fi
 
 	kill $pid

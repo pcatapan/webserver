@@ -25,7 +25,7 @@ function get_page($params_dict) {
         $message = array_key_exists('message', $params_dict) ? $params_dict['message'] : 'ff';
     }
 
-    if (getenv('VALID_COOKIE') == "NO") {
+    if (getenv('VALID_COOKIE') == "NO" && $params_dict == NULL) {
         $template = file_get_contents('./public/assets/no_cookie.html');
         $html = $template;
     } elseif ($params_dict && count($params_dict) >= 3) {
