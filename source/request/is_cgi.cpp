@@ -28,7 +28,7 @@ void list_session_page(){
         body.append((*it_bg).second);
         body.append("</td></tr>");
     }
-    body.append("</tbody></table></div></div><div id=\"Footer\"><p class=\"S-txt\">Web 2.0</p><p class=\"S-txt\">HTTP/1.1</p></div></div></body></html>");
+    body.append("</tbody></table></div></div><div id=\"Footer\"><p class=\"S-txt\">Powerd by <span style=\"color: #2978FF;\">Pcatapan Aanghel Msciacca </span></p></div></div></body></html>");
     outFile.open(SESSION_PAGE, std::ifstream::out);
     if (!inFile.is_open())
         throw _Exception(INTERNAL_SERVER_ERROR);
