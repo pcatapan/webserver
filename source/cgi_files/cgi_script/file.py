@@ -22,16 +22,16 @@ def get_page(params_dict):
         title = params_dict.get('title', 'ff')
         heading = params_dict.get('heading', 'ff')
         message = params_dict.get('message', 'ff')
-    if (os.environ.get('VALID_COOKIE') == "NO"):
+    if (os.environ.get('VALID_COOKIE') == None):
         with open('./public/assets/no_cookie.html', 'r') as f:
             template = f.read()
         html = template
     elif (params_dict and len(params_dict) >= 3):
-        with open('public/assets/template.html', 'r') as f:
+        with open('./public/assets/template.html', 'r') as f:
             template = f.read()
         html = template.format(title=title, heading=heading, message=message)
     else:
-        with open('public/assets/post_template.html', 'r') as f:
+        with open('./public/assets/post_template.html', 'r') as f:
             template = f.read()
         html = template
 
