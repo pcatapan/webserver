@@ -52,7 +52,7 @@ dependencies () {
 
 	echo ""
 	/bin/sleep 1
-	echo "\x1b[32m          " "Environement Set Completely" "\033[0m"
+	echo "\x1b[32m          " "Enviroment Set Completely" "\033[0m"
 	printf "\n\n\n"
 }
 
