@@ -162,8 +162,9 @@ a {
 }
 
 .Description {
-	margin-top: 50px;
-	padding: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .Description ul {
@@ -356,4 +357,8 @@ ul {
   li a:hover {
 	background-color: #2978FF;
 	color: white;
+  }
+
+  ul.a {
+	list-style-type: circle;
   }

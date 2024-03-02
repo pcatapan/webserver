@@ -22,18 +22,19 @@ OBJS	= $(SRCS:.cpp=.o)
 DEPS =  $(INCLUDES_PATH)request.hpp $(INCLUDES_PATH)method.hpp $(INCLUDES_PATH)WebServer.hpp $(INCLUDES_PATH)ConfigFile.hpp $(INCLUDES_PATH)classes.hpp $(INCLUDES_PATH)serverSide.hpp $(INCLUDES_PATH)unitTests.hpp $(INCLUDES_PATH)Assets.hpp
 
 FILES_OBJ = $(OBJS) $(config_OBJS) $(request_OBJS) $(method_OBJS)
+FILES_SRCS = $(SRCS) $(config_SRCS) $(request_SRCS) $(method_SRCS)
 
-%.o:%.cpp $(DEPS)
-	${CC} ${FLAGS}  -o $@ -c $<
+# %.o:%.cpp $(DEPS)
+# 	${CC} ${FLAGS}  -o $@ -c $<
 
 all: Env $(NAME)
 
-$(NAME): $(FILES_OBJ)
-	${CC}  ${FLAGS}  $(FILES_OBJ) -o $(NAME)
+$(NAME): $(FILES_SRCS)
+	${CC}  ${FLAGS}  $(FILES_SRCS) -o $(NAME)
 	
 
 clean:
-	@rm -f $(OBJS)  $(request_OBJS) $(method_OBJS) $(config_OBJS)
+	@rm -f $(FILES_OBJ)
 	@echo "\x1b[36m   +> Clean \033[0m\033[38;5;42m [Done] \033[0m";
 	
 fclean: clean
