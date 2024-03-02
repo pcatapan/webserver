@@ -74,6 +74,14 @@ public:
     int execute_method(request _request);
 };
 
+class _Put : public method
+{
+public:
+    _Put(request & rhs);
+    ~_Put();
+    int execute_method(request _request);
+};
+
 
 
 class Error : public method

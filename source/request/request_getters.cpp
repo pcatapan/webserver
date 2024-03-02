@@ -51,6 +51,10 @@ int request::getAllowedGet() const{
     return this->__get;
 }
 
+int request::getAllowedPut() const{
+    return this->__put;
+}
+
 std::vector<std::pair<std::string, std::string> > const & request::getReqBody( void ) const
 {
     return this->req_body;

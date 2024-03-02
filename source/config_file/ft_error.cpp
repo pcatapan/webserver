@@ -45,7 +45,7 @@ int ConfigFile::valid_return_status(Data &g_Data, std::string status) {
 
 void ConfigFile::check_allow_method(Data &g_Data, map_vector_it location_data_it) {
     for (std::vector<std::string>::iterator value_it = location_data_it->second.begin(); value_it != location_data_it->second.end(); ++value_it) {
-        if (*value_it == "GET" || *value_it == "POST" || *value_it == "DELETE")
+        if (*value_it == "GET" || *value_it == "POST" || *value_it == "DELETE" || *value_it == "PUT")
             continue;
         else {
             g_Data.error = "WebServer: [emerg] invalid arguments \"" + *value_it + "\" in allow_methods in " + this->filename;

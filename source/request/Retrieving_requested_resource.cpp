@@ -83,6 +83,7 @@ void    request::Retrieving_requested_resource(ServerConf *server)
                 if (_findHeader(REQUEST_METHOD).compare("POST") == 0) {this->__post = ALLOWED;}
                 else if (_findHeader(REQUEST_METHOD).compare("GET") == 0) {this->__get = ALLOWED;}
                 else if (_findHeader(REQUEST_METHOD).compare("DELETE") == 0) {this->__delete = ALLOWED;}
+                else if (_findHeader(REQUEST_METHOD).compare("PUT") == 0) {this->__put = ALLOWED;}
                 // allow_methods = true;
             }
             ++__iterator;
@@ -90,7 +91,8 @@ void    request::Retrieving_requested_resource(ServerConf *server)
     }
     if ((_findHeader(REQUEST_METHOD).compare("POST") != 0 ) &&
         (_findHeader(REQUEST_METHOD).compare("GET") != 0) &&
-        (_findHeader(REQUEST_METHOD).compare("DELETE") != 0))
+        (_findHeader(REQUEST_METHOD).compare("DELETE") != 0) &&
+        (_findHeader(REQUEST_METHOD).compare("PUT") != 0))
             this->__method_status = NOT_IMPLIMENTED;
     else if (this->__post == NOT_ALLOWED)
         this->__method_status = NOT_ALLOWED;
@@ -187,6 +189,11 @@ int request::findLocation(std::vector<std::map<std::string, std::map<std::string
     {
         this->is_cgi = true;
         this->compare_URI.append("\%.php$");
+    }
+    else if ((pos =  _findHeader(REQUEST_URI).rfind(".bla")) != std::string::npos && (pos + 4) ==  _findHeader(REQUEST_URI).length())
+    {
+        this->is_cgi = true;
+        this->compare_URI.append("\%.bla$");
     }
     else this->compare_URI.append(this->_findHeader(REQUEST_URI));
      //  * init string |> /srcs/dir001/dir0011/test.txt

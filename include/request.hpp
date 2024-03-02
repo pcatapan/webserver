@@ -102,6 +102,7 @@ private:
     int __post;
     int __delete;
     int __get;
+    int __put;
     int __method_status;
 
     // ! not checked .
@@ -166,6 +167,7 @@ public:
     int getAllowedPost() const;
     int getAllowedDelete() const;
     int getAllowedGet() const;
+    int getAllowedPut() const;
 
     std::vector<std::pair<std::string, std::string> > const &getReqBody(void) const;
 

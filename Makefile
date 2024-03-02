@@ -11,7 +11,7 @@ SERVSRC = $(SERVER_PATH)Server.cpp $(SERVER_PATH)ServerClass.cpp $(SERVER_PATH)u
 config_SRCS = $(CONFIGFILE_PATH)ConfigFile.cpp $(CONFIGFILE_PATH)CheckValidity.cpp $(CONFIGFILE_PATH)ft_error.cpp $(CONFIGFILE_PATH)save_data.cpp $(CONFIGFILE_PATH)tool.cpp
 
 
-method_SRCS =  $(METHODS_PATH)get.cpp  $(METHODS_PATH)method.cpp $(METHODS_PATH)delete.cpp  $(METHODS_PATH)post.cpp  $(METHODS_PATH)error.cpp
+method_SRCS =  $(METHODS_PATH)get.cpp  $(METHODS_PATH)method.cpp $(METHODS_PATH)delete.cpp  $(METHODS_PATH)post.cpp  $(METHODS_PATH)put.cpp  $(METHODS_PATH)error.cpp
 request_SRCS =  $(REQUEST_PATH)request.cpp $(REQUEST_PATH)request_utils.cpp  $(REQUEST_PATH)request_getters.cpp $(REQUEST_PATH)Retrieving_requested_resource.cpp 
 SRCS =  ./source/main.cpp  ./source/Assets.cpp  ./source/_Exception.cpp  $(REQUEST_PATH)is_cgi.cpp $(SERVSRC)
 

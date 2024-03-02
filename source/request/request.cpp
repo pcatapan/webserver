@@ -8,6 +8,7 @@ request::request(
                              __post(NOT_ALLOWED),
                              __delete(NOT_ALLOWED),
                              __get(NOT_ALLOWED),
+                             __put(NOT_ALLOWED),
                              __method_status(IMPLIMENTED),
                              request_status(status) 
 {
@@ -289,6 +290,8 @@ method *request::execute_request(void)
             reqmethod = new _Delete(*this);
         else if (_findHeader(REQUEST_METHOD).compare("POST") == 0 && this->__post == ALLOWED)
             reqmethod = new _Post(*this);
+        else if (_findHeader(REQUEST_METHOD).compare("PUT") == 0 && this->__put == ALLOWED)
+            reqmethod = new _Put(*this);
         else
             throw  _Exception(METHOD_NO_ALLOWED);
     }
